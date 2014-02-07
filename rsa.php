@@ -1,0 +1,65 @@
+<?php
+require_once 'header.html';
+$cliEdit = "cli realm edit";
+$rsaName = "";
+$rsaVnet = "";
+$rsaMediaPool = "";
+$rsaIP = "";
+$rsaMask = "";
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $rsaName = $_POST['rsaName'];
+    $rsaVnet = $_POST['rsaVnet'];
+    $rsaMediaPool = $_POST['rsaMediaPool'];
+    $rsaMask = $_POST['rsaMask'];
+    $rsaIP = $_POST['rsaIP'];
+    $cliEdit = $cliEdit . " " . $rsaName . " ";
+    print "<textarea name='nowrap' rows='20' cols='80'>";
+    print "cli realm add " . $rsaName ."\n";
+    print $cliEdit . "rsa " . $rsaIP . "\n";
+    print $cliEdit . "mask " . $rsaMask . "\n";
+    print $cliEdit . "vnet " . $rsaVnet . "\n";
+    print $cliEdit . "medpool " . $rsaMediaPool . "\n";
+//    print $cliEdit . "imr alwayson \n";
+//    print $cliEdit . "emr alwayson" . "\n";
+//    print $cliEdit . "natmr alwaysoff" . "\n"; 
+    echo "</textarea>";
+	echo "</div>";
+	echo "</body>";
+	echo "</html>";
+	exit;
+}
+
+
+echo <<<_END
+<div id='container'>
+<br />
+
+<form id="contractform" action="rsa.php" method="POST">
+<h3>Genband Realm Configuration</h3>
+<div class="field">
+	<label for='rsaName'>Realm Name: </label>
+	<input type='text' class='input' size="20" maxlength='50' name='rsaName' /><br />
+</div>
+<div class="field">
+	<label for='rsaVnet'>VNET Name: </label>
+	<input type='text' class='input' size="20" maxlength='50' name='rsaVnet' /><br />
+</div>
+<div class='field'>
+	<label for='rsaMediaPool'>Media Pool ID: </label>
+	<input type='text' class='input' size="20" maxlength='150' name='rsaMediaPool' value='$rsaMediaPool' />
+</div>
+<div class='field'>
+	<label for='rsaIP'>Realm IP Address: </label>
+	<input type='text' class='input' size="20" maxlength='50' name='rsaIP' /><br />
+</div>
+<div class='field'>
+	<label for='rsaMask'>Realm Subnet Mask: </label>
+	<input type='text' class='input' size="20" maxlength='50' name='rsaMask' /><br />
+</div>
+<br />
+<input type='submit' class='button' value='Submit' />
+</form>
+</div>
+_END;
+?>
