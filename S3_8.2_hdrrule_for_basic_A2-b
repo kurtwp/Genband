@@ -1,0 +1,81 @@
+cli hdrrule add x-nt-location
+cli hdrrule edit x-nt-location method ALL header-element fullheader method-type both response ALL header x-nt-location operation PASS-IGN-ERR
+cli hdrpolicy edit System_Header_Policy_Profile add x-nt-location ruletype DESTHDRRULE
+cli hdrrule add x-nt-alter-id 
+cli hdrrule edit x-nt-alter-id method ALL header-element fullheader method-type both response ALL header x-nt-alter-id operation PASS-IGN-ERR
+cli hdrpolicy edit System_Header_Policy_Profile add x-nt-alter-id ruletype DESTHDRRULE
+cli hdrrule add x-nt-call-duration
+cli hdrrule edit x-nt-call-duration method ALL header-element fullheader method-type both response ALL header x-nt-call-duration operation PASS-IGN-ERR
+cli hdrpolicy edit System_Header_Policy_Profile add x-nt-call-duration ruletype DESTHDRRULE
+cli hdrrule add x-nt-calling-id
+cli hdrrule edit x-nt-calling-id method ALL header-element fullheader method-type both response ALL header x-nt-calling-id operation PASS-IGN-ERR
+cli hdrpolicy edit System_Header_Policy_Profile add x-nt-calling-id ruletype DESTHDRRULE
+cli hdrrule add x-nt-cd3-count
+cli hdrrule edit x-nt-cd3-count method ALL header-element fullheader method-type both response ALL header x-nt-cd3-count operation PASS-IGN-ERR
+cli hdrpolicy edit System_Header_Policy_Profile add x-nt-cd3-count ruletype DESTHDRRULE
+cli hdrrule add x-nt-corr-id
+cli hdrrule edit x-nt-corr-id method ALL header-element fullheader method-type both response ALL header x-nt-corr-id operation PASS-IGN-ERR
+cli hdrpolicy edit System_Header_Policy_Profile add x-nt-corr-id ruletype DESTHDRRULE
+cli hdrrule add x-nt-guid
+cli hdrrule edit x-nt-guid method ALL header-element fullheader method-type both response ALL header x-nt-guid operation PASS-IGN-ERR
+cli hdrpolicy edit System_Header_Policy_Profile add x-nt-guid ruletype DESTHDRRULE
+cli hdrrule add x-nt-mas-sid
+cli hdrrule edit x-nt-mas-sid method ALL header-element fullheader method-type both response ALL header x-nt-mas-sid operation PASS-IGN-ERR
+cli hdrpolicy edit System_Header_Policy_Profile add x-nt-mas-sid ruletype DESTHDRRULE
+cli hdrrule add x-nt-party-id
+cli hdrrule edit x-nt-party-id method ALL header-element fullheader method-type both response ALL header x-nt-party-id operation PASS-IGN-ERR
+cli hdrpolicy edit System_Header_Policy_Profile add x-nt-party-id ruletype DESTHDRRULE
+cli hdrrule add x-nt-resource-priority
+cli hdrrule edit x-nt-resource-priority method ALL header-element fullheader method-type both response ALL header x-nt-resource-priority operation PASS-IGN-ERR
+cli hdrpolicy edit System_Header_Policy_Profile add x-nt-resource-priority ruletype DESTHDRRULE
+cli hdrrule add x-nt-service
+cli hdrrule edit x-nt-service method ALL header-element fullheader method-type both response ALL header x-nt-service operation PASS-IGN-ERR
+cli hdrpolicy edit System_Header_Policy_Profile add x-nt-service ruletype DESTHDRRULE
+cli hdrrule add x-nt-useruser
+cli hdrrule edit x-nt-useruser method ALL header-element fullheader method-type both response ALL header x-nt-useruser operation PASS-IGN-ERR
+cli hdrpolicy edit System_Header_Policy_Profile add x-nt-useruser ruletype DESTHDRRULE
+cli hdrrule add x-nt-xlainfo
+cli hdrrule edit x-nt-xlainfo method ALL header-element fullheader method-type both response ALL header x-nt-xlainfo operation PASS-IGN-ERR
+cli hdrpolicy edit System_Header_Policy_Profile add x-nt-xlainfo ruletype DESTHDRRULE
+cli hdrrule add x-nt-locname
+cli hdrrule edit x-nt-locname method ALL header-element fullheader method-type both response ALL header x-nt-locname operation PASS-IGN-ERR
+cli hdrpolicy edit System_Header_Policy_Profile add x-nt-locname ruletype DESTHDRRULE
+cli hdrrule add pass_contact
+cli hdrrule edit pass_contact method ALL method-type both  header-element parameter header contact param-type hdr operation PASS-VALID
+cli hdrpolicy edit System_Header_Policy_Profile add pass_contact ruletype DESTHDRRULE
+cli hdrrule add pass_contact_uri
+cli hdrrule edit pass_contact_uri method ALL method-type req header-element parameter header contact param-type uri param ALL operation PASS-VALID
+cli hdrpolicy edit System_Header_Policy_Profile add pass_contact_uri ruletype DESTHDRRULE
+cli hdrrule add pass_encod
+cli hdrrule edit   pass_encod method ALL method-type both header-element fullheader  header e operation PASS-VALID
+cli hdrpolicy edit System_Header_Policy_Profile add pass_encod ruletype DESTHDRRULE
+cli hdrrule add Pass-Accept-Encoding
+cli hdrrule edit   Pass-Accept-Encoding method ALL method-type both header-element fullheader  header accept-encoding operation PASS-VALID
+cli hdrpolicy edit System_Header_Policy_Profile add Pass-Accept-Encoding ruletype DESTHDRRULE
+cli hdrrule add Pass-Content-Encoding
+cli hdrrule edit   Pass-Content-Encoding method ALL method-type both header-element fullheader  header content-encoding operation PASS-VALID
+cli hdrpolicy edit System_Header_Policy_Profile add Pass-Content-Encoding ruletype DESTHDRRULE
+cli hdrrule add pass_o
+cli hdrrule edit   pass_o method ALL method-type both header-element fullheader  header o operation PASS-VALID
+cli hdrpolicy edit System_Header_Policy_Profile add pass_o ruletype DESTHDRRULE
+cli hdrrule add pass_Accept-Language
+cli hdrrule edit   pass_Accept-Language method ALL method-type both header-element fullheader  header Accept-Language operation PASS-VALID
+cli hdrpolicy edit System_Header_Policy_Profile add pass_Accept-Language ruletype DESTHDRRULE
+cli hdrrule add pass_subject
+cli hdrrule edit pass_subject method ALL method-type both header subject   header-element fullheader operation PASS-VALID
+cli hdrpolicy edit System_Header_Policy_Profile add pass_subject ruletype DESTHDRRULE 
+cli hdrrule add pass_s
+cli hdrrule edit pass_s method ALL method-type both header s header-element fullheader operation PASS-VALID
+cli hdrpolicy edit System_Header_Policy_Profile add pass_s ruletype DESTHDRRULE 
+cli hdrrule add k 
+cli hdrrule edit k method ALL header-element fullheader method-type both response ALL header k operation PASS-VALID
+cli hdrpolicy edit System_Header_Policy_Profile add k ruletype DESTHDRRULE
+cli hdrrule add pass-Geolocation
+cli hdrrule edit pass-Geolocation method ALL method-type both header-element fullheader  header Geolocation operation PASS-VALID
+cli hdrpolicy edit System_Header_Policy_Profile add pass-Geolocation ruletype DESTHDRRULE
+cli hdrrule add pass-Geolocation-Error
+cli hdrrule edit pass-Geolocation-Error method ALL method-type both header-element fullheader  header Geolocation-Error operation PASS-VALID
+cli hdrpolicy edit System_Header_Policy_Profile add pass-Geolocation-Error ruletype DESTHDRRULE
+cli hdrrule add pass-Geolocation-Routing
+cli hdrrule edit pass-Geolocation-Routing method ALL method-type both header-element fullheader  header Geolocation-Routing operation PASS-VALID
+cli hdrpolicy edit System_Header_Policy_Profile add pass-Geolocation-Routing ruletype DESTHDRRULE
