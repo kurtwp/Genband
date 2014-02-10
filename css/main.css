@@ -119,9 +119,9 @@
 
 .menu_div ul ul {
     display: none;
-    top: 100px;
+    top: auto;
     position: absolute;
-    left: 240px;
+    left: 415px;
     width: 185px !important;
 	border: 1px solid #000 !important;
 	text-align: center;

@@ -29,7 +29,7 @@ echo <<<_END
 <div id='container'>
 <br />
 
-<form id="contractform" action="vnet.php" method="POST">
+<form id="contactform" action="vnet.php" method="POST">
 <h3>Genband VNET Configuration</h3>
 <div class="field">
 	<label for='vnetName'>VNET Name: </label>

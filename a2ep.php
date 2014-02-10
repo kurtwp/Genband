@@ -25,10 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     print $cliEdit . $endPoint . "uri " . $epURI . "\n";
     print $cliEdit . $endPoint . "pass-require-hdr enable" . "\n";
     print $cliEdit . $endPoint . "pass-supported-hdr enable" . "\n";
-    echo "</textarea>";
-	echo "</div>";
-	echo "</body>";
-	echo "</html>";
+    echo "</textarea>" ."\n";
+	echo "</div> <!-- End of Wrapper -->"."\n";
+	echo "</body>"."\n";
+	echo "</html>"."\n";
 	exit;
 }
 
@@ -37,7 +37,7 @@ echo <<<_END
 <div id='container'>
 <br />
 
-<form action="a2.php" method="POST">
+<form id='contactform' action="a2ep.php" method="POST">
 <h3>Genband SESM (A2) End Point Configuration</h3>
 <div class="field">
 	<label for='epName'>End Point Name: </label>
@@ -62,6 +62,6 @@ echo <<<_END
 </div>
 <input type='submit' class='button' value='Submit' />
 </form>
-</div>
+</div> <!-- End of Container>
 _END;
 ?>

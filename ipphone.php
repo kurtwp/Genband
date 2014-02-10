@@ -25,10 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	print $cliEdit . $endPoint . "natdetect enable" . "\n";
 	print $cliEdit . $endPoint . "sip enable" . "\n";
 	print $cliEdit . $endPoint . "xcalls " . $xCalls . "\n";
-    echo "</textarea>";
-	echo "</div>";
-	echo "</body>";
-	echo "</html>";
+    echo "</textarea>" ."\n";
+	echo "</div> <!-- End of Wrapper -->"."\n";
+	echo "</body>"."\n";
+	echo "</html>"."\n";
 	exit;
 }
 
@@ -37,7 +37,7 @@ echo <<<_END
 <div id='container'>
 <br />
 
-<form action="ipphone.php" method="POST">
+<form id='contactform' action="ipphone.php" method="POST">
 <h3>Genband Soft Phone End Point Configuration</h3>
 <div class="field">
 	<label for='epName'>End Point Name: </label>
@@ -63,6 +63,6 @@ echo <<<_END
 <br />
 <input type='submit' class='button' value='Submit' />
 </form>
-</div>
+</div> <!-- End of Container -->
 _END;
 ?>

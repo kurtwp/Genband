@@ -25,10 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     print $cliEdit . "natmr alwaysoff" . "\n";
     print $cliEdit . "sipauth all" . "\n";
     print $cliEdit . "realm-panasonic enable" . "\n";
-    echo "</textarea>";
-	echo "</div>";
-	echo "</body>";
-	echo "</html>";
+    echo "</textarea>" ."\n";
+	echo "</div> <!-- End of Wrapper -->"."\n";
+	echo "</body>"."\n";
+	echo "</html>"."\n";
 	exit;
 }
 
@@ -37,7 +37,7 @@ echo <<<_END
 <div id='container'>
 <br />
 
-<form id="contractform" action="a2rsa.php" method="POST">
+<form id="contactform" action="a2rsa.php" method="POST">
 <h3>Genband A2 Realm Configuration</h3>
 <div class="field">
 	<label for='rsaName'>Realm Name: </label>
@@ -62,6 +62,6 @@ echo <<<_END
 <br />
 <input type='submit' class='button' value='Submit' />
 </form>
-</div>
+</div> <!-- End of Container -->
 _END;
 ?>
