@@ -1,0 +1,15 @@
+nxconfig.pl -e obp -v 1; Configure QUANTiX SBC to run in outbound proxy mode (obp mode)
+nxconfig.pl -e allow-dynamicEndpoints -v 1; Allow dynamic Endpoint registration
+nxconfig.pl -e enable-natdetection -v 1; Enable NAT detection
+nxconfig.pl -e im-uri-support -v 1; To allow im uri to pass through for instant messaging
+nxconfig.pl -e enableheaderpolicy -v 1; Globally enables header manipulation rules
+nxconfig.pl -e sip3261dialogidentification -v 1; Use RFC 3261 rules for matching SIP dialogs
+nxconfig.pl -e dynamicEndpoints_invitenosdp -v; Pass Invites with no Session Description Protocol (SDP) as is,do not add default codecs
+    (enabled by default in 7.1+)
+nxconfig.pl -e pass-zero-mport -v 1; Forward SDP with media port = 0.
+nxconfig.pl -e sipmaxmsgsize -v 5000; Increase the maximum SIP message size.
+nxconfig.pl -e max-transport-mtu-size -v 5000; If the packet size is bigger than this value (i.e.5000) , the QUANTiX SBC automatically uses TCP
+nxconfig.pl -e forward-OPTIONS -v 1; The QUANTiX SBC needs to proxy the OPTIONS messages to the Static SIP-PBX and RCS clients. The EXPERiUS AS uses OPTIONS messages for the AYT audits and for RCS clients Note: This configuration option required for static SIP-PBX, OPTIONS automatically proxied for Dynamic SIP-PBX.
+nxconfig.pl -e pass-out-of-dialog-info -v 1; Allows out-of-dialog INFO messages to go from EXPERiUS AS to Endpoints behind the QUANTiX SBC
+nxconfig.pl -e maddr-domain-routing-support –v 1; Enables support WAM 5.0 and GENCom for Web. Allows the maddr in the Request URI to pass from WAM to the EXPERiUS AS. Not required for SPiDR 1.0+
+nxconfig.pl -e invalid-mline-count -v 1; Allows m-lines in INVITE message to pass through from the EXPERiUS As to the QUANTiX SBC if they do not match
