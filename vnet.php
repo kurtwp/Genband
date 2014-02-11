@@ -12,21 +12,23 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $vnetIP = $_POST['vnetIP'];
     $vnetVLAN = $_POST['vnetVLAN'];
     $cliEdit = $cliEdit . " " . $vnetName . " ";
-    print "<textarea name='nowrap' rows='20' cols='80'>";
+	print "<div id='right_box'>"."\n";
+    print "<textarea name='nowrap' rows='20' cols='80'>"."\n";
     print "cli vnet add " . $vnetName ."\n";
     print $cliEdit . "vlanid " . $vnetVLAN . "\n";
     print $cliEdit . "ifname " . $vnetIF . "\n";
     print $cliEdit . "primary-gateway " . $vnetIP . "\n";
-    echo "</textarea>";
-	echo "</div>";
-	echo "</body>";
+    echo "</textarea>"."\n";
+	echo "</div> <!-- End of Right Box -->"."\n";
+	echo "</div> <!-- End of Wrapper -->"."\n";
+	echo "</body>"."\n";
 	echo "</html>";
 	exit;
 }
 
 
 echo <<<_END
-<div id='container'>
+<div id='right_box'>
 <br />
 
 <form id="contactform" action="vnet.php" method="POST">
@@ -50,6 +52,9 @@ echo <<<_END
 <br />
 <input type='submit' class='button' value='Submit' />
 </form>
-</div>
+</div> <!-- End of Right Box -->
+</div> <!-- End or Wrappper -->
+</body>
+</html>
 _END;
 ?>

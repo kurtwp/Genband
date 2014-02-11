@@ -14,7 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $rsaMask = $_POST['rsaMask'];
     $rsaIP = $_POST['rsaIP'];
     $cliEdit = $cliEdit . " " . $rsaName . " ";
-    print "<textarea name='nowrap' rows='20' cols='80'>";
+    print "<div id='right_box'>"."\n";
+    print "<textarea name='nowrap' rows='20' cols='80'>"."\n";
     print "cli realm add " . $rsaName ."\n";
     print $cliEdit . "rsa " . $rsaIP . "\n";
     print $cliEdit . "mask " . $rsaMask . "\n";
@@ -24,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 //    print $cliEdit . "emr alwayson" . "\n";
 //    print $cliEdit . "natmr alwaysoff" . "\n"; 
     echo "</textarea>" ."\n";
+	echo "</div> <!-- End of Right Box -->"."\n";
 	echo "</div> <!-- End of Wrapper -->"."\n";
 	echo "</body>"."\n";
 	echo "</html>"."\n";
@@ -32,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
 echo <<<_END
-<div id='container'>
+<div id='right_box'>
 <br />
 
 <form id="contactform" action="rsa.php" method="POST">
@@ -60,6 +62,9 @@ echo <<<_END
 <br />
 <input type='submit' class='button' value='Submit' />
 </form>
-</div> <!-- End of Container -->
+</div> <!-- End of Right Box -->
+</div> <!-- End or Wrappper -->
+</body>
+</html>
 _END;
 ?>

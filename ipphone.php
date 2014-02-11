@@ -16,7 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $epRealm = $_POST['epRealm'];
     $epEXT = $_POST['epEXT'];
     $endPoint = " " . $epName . " " . $epPort . " ";
-    print "<textarea name='nowrap' rows='20' cols='80'>";
+	print "<div id='right_box'>";
+    print "<textarea name='nowrap' rows='20' cols='80'>" ."\n";
     print "cli iedge add " . $endPoint ."\n";
     print $cliEdit . $endPoint . "realm " . $epRealm . "\n";
     print $cliEdit . $endPoint . "type " . $epType . "\n";
@@ -26,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	print $cliEdit . $endPoint . "sip enable" . "\n";
 	print $cliEdit . $endPoint . "xcalls " . $xCalls . "\n";
     echo "</textarea>" ."\n";
+	echo "</div> <!-- End of Right Box -->"."\n";
 	echo "</div> <!-- End of Wrapper -->"."\n";
 	echo "</body>"."\n";
 	echo "</html>"."\n";
@@ -34,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
 echo <<<_END
-<div id='container'>
+<div id='right_box'>
 <br />
 
 <form id='contactform' action="ipphone.php" method="POST">
@@ -63,6 +65,9 @@ echo <<<_END
 <br />
 <input type='submit' class='button' value='Submit' />
 </form>
-</div> <!-- End of Container -->
+</div> <!-- End of Right Box -->
+</div> <!-- End or Wrappper -->
+</body>
+</html>
 _END;
 ?>
