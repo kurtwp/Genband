@@ -1,0 +1,81 @@
+/*{
+  border: 1px solid red;
+} */ 
+
+/* ---- Main 2-Column Layout ---- */  
+#wrapper {
+    background: #FFF;
+    width: 1200px;
+	padding-top: 5px;
+    margin: 20px auto;
+}
+#left_box {
+    width: 260px;
+	padding: 10px;
+    float: left
+}
+#right_box {
+    width: 940px;
+	padding: 10px;
+    margin-left: 260px;
+}
+#footer {
+    clear: both;
+}
+
+/* ---- Start of Vertical Menu Section ---- */
+
+.vert {
+	clear: both;
+	height: auto;
+	float: left;
+	margin: 0px 5px 5px 5px;
+	width: 212px;
+}
+.vert ul{
+	font-family: arial,helvetica,sans-serif;
+	margin: 0;
+    padding:5px;
+	font-size: 15px;
+    color: #FFF;
+    text-indent: 15px;
+	text-decoration: none;
+    background-color: #333333
+}
+.vert ul li {
+	border-bottom: 1px solid #000;
+    background-color: #333333;
+	list-style:none;
+	position: relative;
+}
+.vert ul li a {
+	display: block;
+	color: #FFF;
+	text-decoration: none;
+    line-height: 28px;
+	
+}
+.vert ul li a:hover {
+	background-color: #3EA5EA;
+	text-decoration:none;
+}
+.vert ul li a.active {
+	background-color:#3EA5EA;
+	text-decoration:none;
+}
+/* New vert Config  */
+.vert ul ul {
+    display: none;
+    top: 0;
+    position: absolute;
+    left: 170px;
+    width: 185px !important;
+	border: 1px solid #0A8BC5 !important;
+	text-align: center;
+} 
+.vert li:hover ul {
+    display: block;
+    position: absolute;
+	margin: 0;
+	padding: 0;
+} 

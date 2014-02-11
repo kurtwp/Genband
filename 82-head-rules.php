@@ -1,7 +1,8 @@
 <?php
 require_once 'header.html';
+echo "<div id='right_box'>";
 echo "<h3> A2-S3 Global Header Rule Settings</h3><br />";
-    echo "<h2>For SBC Release 8.2</h2><br />";
+echo "<h2>For SBC Release 8.2</h2><br />";
 print "<textarea name='nowrap' rows='60' cols='102'>" . "\n";
 print "cli hdrrule add x-nt-location" . "\n";
 print "cli hdrrule edit x-nt-location method ALL header-element fullheader method-type both response ALL header x-nt-location operation PASS-IGN-ERR" . "\n";
@@ -85,6 +86,7 @@ print "cli hdrrule add pass-Geolocation-Routing" . "\n";
 print "cli hdrrule edit pass-Geolocation-Routing method ALL method-type both header-element fullheader  header Geolocation-Routing operation PASS-VALID" . "\n";
 print "cli hdrpolicy edit System_Header_Policy_Profile add pass-Geolocation-Routing ruletype DESTHDRRULE" . "\n";
 echo "</textarea>" ."\n";
+echo "</div> <!-- End of Right Box -->";
 echo "</div> <!-- End of Wrapper -->"."\n";
 echo "</body>"."\n";
 echo "</html>"."\n";

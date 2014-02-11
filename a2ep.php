@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $epIP = $_POST['epIP'];
     $epURI = $_POST['epURI'];
     $endPoint = " " . $epName . " " . $epPort . " ";
+	print "<div id='right_box'>";
     print "<textarea name='nowrap' rows='20' cols='80'>";
     print "cli iedge add " . $endPoint ."\n";
     print $cliEdit . $endPoint . "realm " . $epRealm . "\n";
@@ -26,15 +27,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     print $cliEdit . $endPoint . "pass-require-hdr enable" . "\n";
     print $cliEdit . $endPoint . "pass-supported-hdr enable" . "\n";
     echo "</textarea>" ."\n";
+	echo "</div> <!-- End of Right Box -->"."\n";
 	echo "</div> <!-- End of Wrapper -->"."\n";
 	echo "</body>"."\n";
 	echo "</html>"."\n";
 	exit;
 }
 
-
 echo <<<_END
-<div id='container'>
+<div id='right_box'>
 <br />
 
 <form id='contactform' action="a2ep.php" method="POST">
@@ -62,6 +63,6 @@ echo <<<_END
 </div>
 <input type='submit' class='button' value='Submit' />
 </form>
-</div> <!-- End of Container>
+</div> <!-- End of Right Box>
 _END;
 ?>
