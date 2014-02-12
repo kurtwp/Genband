@@ -17,7 +17,7 @@
 		padding: 10px;
     }
 	#contactform {
-	width: 500px;
+	width: 600px;
 	padding: 20px;
 	background: #f0f0f0;
 	overflow:auto;
@@ -63,9 +63,8 @@
 	display: block; 
 	float: left; 
 	font-weight: bold; 
-	margin-right:35px; 
-	/*text-align: right; */ 
-	width: 130px; 
+	margin-right:20px; 
+	width: 165px; 
 	line-height: 25px; 
 	font-size: 15px; 
 	}
@@ -106,7 +105,7 @@
 	
 	.button{
 	float: right;
-	margin:10px 55px 10px 0;
+	margin:15px 105px 10px 0;
 	font-weight: bold;
 	line-height: 1;
 	padding: 6px 10px;
