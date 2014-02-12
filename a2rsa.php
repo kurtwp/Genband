@@ -1,5 +1,6 @@
 <?php
 require_once 'header.html';
+$addCommands = "";
 $cliEdit = "cli realm edit";
 $rsaName = "";
 $rsaVnet = "";
@@ -63,10 +64,26 @@ echo <<<_END
 	<input type='text' class='input' size="20" maxlength='50' name='rsaMask' /><br />
 </div>
 <br />
+<div class='field'>
+	<label for='addCommand'>Additional Commands: </label>
+	<input type='text' class='input' size="10" maxlength='10' name='addCommand' value='NOT AVAILABLE'/><br />
+</div>
+<br />
 <input type='submit' class='button' value='Submit' />
 </form>
 </div> <!-- End of Right Box -->
 </div> <!-- End or Wrappper -->
+<!-- Google Analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15306775-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<!-- End of Google Analytics -->
 </body>
 </html>
 _END;
