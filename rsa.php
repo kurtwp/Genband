@@ -55,6 +55,7 @@ echo <<<_END
 	<label for='rsaIP'>Realm IP Address: </label>
 	<input type='text' class='input' size="20" maxlength='50' name='rsaIP' /><br />
 </div>
+<br />
 <div class='field'>
 	<label for='rsaMask'>Realm Subnet Mask: </label>
 	<input type='text' class='input' size="20" maxlength='50' name='rsaMask' /><br />
