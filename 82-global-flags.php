@@ -8,12 +8,12 @@ echo <<<_END
     <h2>For SBC Release 8.2</h2><br />
     <textarea rows='15' cols='80'>
 nxconfig.pl -e obp -v 1
-nxconfig.pl -e allow-dynamicEndpoints -v 1
+nxconfig.pl -e allow-dynamicendpoints -v 1
 nxconfig.pl -e enable-natdetection -v 1
 nxconfig.pl -e im-uri-support -v 1
 nxconfig.pl -e enableheaderpolicy -v 1
 nxconfig.pl -e sip3261dialogidentification -v 1
-nxconfig.pl -e dynamicEndpoints_invitenosdp -v 1
+nxconfig.pl -e dynamicendpoints_invitenosdp -v 1
 nxconfig.pl -e pass-zero-mport -v 1
 nxconfig.pl -e sipmaxmsgsize -v 5000
 nxconfig.pl -e max-transport-mtu-size -v 5000
