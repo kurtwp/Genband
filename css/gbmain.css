@@ -22,7 +22,13 @@
 #footer {
     clear: both;
 }
-
+/* ---- Formating ---- */
+.commh3 {
+	margin: 10px 0 10px 0;
+}
+.commp {
+	font-size: 15px;
+}
 /* ---- Start of Vertical Menu Section ---- */
 
 .vert {
