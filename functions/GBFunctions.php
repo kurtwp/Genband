@@ -34,6 +34,14 @@ function validatePort($port) {
     }
     return;
 }
+// Validate Realm
+    function validateRSA($rsa) {
+        if ($rsa != "") {
+            return "";
+        } else {
+            return "Enter in Realm name";
+        }
+    }
 // Compare Port Count with Realm Count
 function compareRSACount($PCount,$RCount) {
     if ($PCount != $RCount) {
