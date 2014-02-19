@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $rsaIP = $_POST['rsaIP'];
     $cliEdit = $cliEdit . " " . $rsaName . " ";
     print "<div id='right_box'>"."\n";
-    print "<textarea name='nowrap' rows='20' cols='80'>"."\n";
+    print "<textarea name='nowrap' rows='15' cols='80'>"."\n";
     print "cli realm add " . $rsaName ."\n";
     print $cliEdit . "rsa " . $rsaIP . "\n";
     print $cliEdit . "mask " . $rsaMask . "\n";
@@ -26,6 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 //    print $cliEdit . "emr alwayson" . "\n";
 //    print $cliEdit . "natmr alwaysoff" . "\n"; 
     echo "</textarea>" ."\n";
+    echo "<h3 class='commh3'> Show Commands for Realms</h3>";
+    echo "<textarea rows='7' cols='80'>";
+    print "cli realm lkup " . $rsaName . " | more"."\n";
+    print "\n";
+	print "---------------- OR -------------"."\n";
+	print "\n";
+    print "cli realm brief" . "\n";
+    echo "</textarea>";
 	echo "</div> <!-- End of Right Box -->"."\n";
 	echo "</div> <!-- End of Wrapper -->"."\n";
 	echo "</body>"."\n";

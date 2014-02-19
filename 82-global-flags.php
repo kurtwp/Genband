@@ -6,7 +6,7 @@ echo <<<_END
     <div id=right_box>
     <h3> A2-S3 Global Settings</h3><br />
     <h2>For SBC Release 8.2</h2><br />
-    <textarea rows='15' cols='80'>
+    <textarea rows='16' cols='80'>
 nxconfig.pl -e obp -v 1
 nxconfig.pl -e allow-dynamicendpoints -v 1
 nxconfig.pl -e enable-natdetection -v 1
@@ -21,6 +21,7 @@ nxconfig.pl -e forward-OPTIONS -v 1
 nxconfig.pl -e pass-out-of-dialog-info -v 1
 nxconfig.pl -e maddr-domain-routing-support –v 1
 nxconfig.pl -e invalid-mline-count -v 1
+nxconfig.pl -e norequireport -v 1
     </textarea>
     <br />
     <br />

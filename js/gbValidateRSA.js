@@ -30,11 +30,46 @@
 			return "Please enter a IP address! \n";
 		}
 	}
-
+// --- Validate Subnet Mask ---
+    function validateRSAMask(mask) {
+        var firstOctect = 0;
+        var octect = [0,128,192,224,240,248,252,254,255];
+        
+        var tempArray = mask.split(".");
+        var arrayCount = tempArray.length;
+        if (arrayCount < 4 || arrayCount > 4) {
+            return "Invalid Subnet mask \n";
+        }
+        if (arrayCount == 4) {
+            for (i=0;i<4;i++) {
+                if (i == 0) {
+                    if (firstOctect == tempArray[0]) {
+                        return "First Mask Octect in Invalid! \n";
+                    }
+                    for (k=1;k<4;k++) {
+                        for (o=0;o<10;o++) {
+                            if (tempArray[k] == octect[o]) {
+                                var value = 1;
+                                break;
+                            } else {
+                                var value = 0;
+                            }
+                        }
+                        if (value == 0 && o == 10) {
+                            return "Invalid Subnet Mask"
+                        }
+                    }
+                }
+            }
+        }
+        return "";
+    }
+    
 function gbValidateRSA(form) {
     fail = validateRSAName(form.rsaName.value)
     fail += validateRSAVnet(form.rsaVnet.value)
     fail += validateRSAIP(form.rsaIP.value)
+    fail += validateRSAMask(form.rsaMask.value)
     if (fail == "") {
         return true;
     } else {
