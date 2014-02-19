@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $vnetVLAN = $_POST['vnetVLAN'];
     $cliEdit = $cliEdit . " " . $vnetName . " ";
 	print "<div id='right_box'>"."\n";
-    print "<textarea name='nowrap' rows='20' cols='80'>"."\n";
+    print "<textarea name='nowrap' rows='7' cols='80'>"."\n";
     print "cli vnet add " . $vnetName ."\n";
     print $cliEdit . "vlanid " . $vnetVLAN . "\n";
     print $cliEdit . "ifname " . $vnetIF . "\n";
