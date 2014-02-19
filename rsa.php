@@ -38,7 +38,7 @@ echo <<<_END
 <div id='right_box'>
 <br />
 
-<form id="contactform" action="rsa.php" method="POST">
+<form id="contactform" action="rsa.php" method="POST" onSubmit="return gbValidateRSA(this);">
 <h3>Genband Realm Configuration</h3>
 <div class="field">
 	<label for='rsaName'>Realm Name: </label>

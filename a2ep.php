@@ -139,6 +139,7 @@ echo <<<_END
 	<label for='addCommands'>Additional Commands: </label>
 	<input type='text' class='input' size="10" maxlength='100' name='addCommands' /><br />
 </div>
+<input type='hidden' name='epTest' value='false' /><br />
 <input type='submit' class='button' value='submit' />
 </form>
 </div> <!-- End of Right Box -->
