@@ -64,12 +64,26 @@
         }
         return "";
     }
+// -- Validate Media Pool ID ---
+    function validateMD(md) {
+        var regexp = /^\d+$/;
+        if (md != "") {
+			if (md.match(regexp)) {
+                return "";	
+			} else {
+				return "Media Pools IDs must be all numbers! \n";
+			}
+			} else {
+					return "Please enter a Media Pool ID! \n";
+            }
+    }
     
 function gbValidateRSA(form) {
     fail = validateRSAName(form.rsaName.value)
     fail += validateRSAVnet(form.rsaVnet.value)
     fail += validateRSAIP(form.rsaIP.value)
     fail += validateRSAMask(form.rsaMask.value)
+    fail += validateMD(form.rsaMediaPool.value)
     if (fail == "") {
         return true;
     } else {
