@@ -121,4 +121,40 @@ function compareURICount($PCount,$UCount) {
     }
     return "";
 }
+// Validate Ethernet Inteface
+    function validateIF($if) {
+        $value = 1;
+        $ether = array("eth2","eth3","eth4","eth5");
+        for ($i=0;$i<4;$i++) {
+            if ($ether[$i] == $if) {
+                break;   
+            } else {
+                $value = 0;
+            }
+        }
+        if ($value == 0 && $i == 4) {
+            return "Invalid VNET Interface Name! <br />";
+        } else {
+            return "";
+        }
+    }
+// Validate VlAN
+function validateVLAN($vlan) {
+    
+    // Reg Ex checks for postive numbers only
+    $regexp = '/^\d+$/';
+    if ($vlan == "none") {
+        return "";
+    }
+    if ($vlan != "") {
+        if (preg_match($regexp, $vlan))
+        {
+            return "";
+        } else {
+            return "VLAN ID must be all numbers !";
+        }
+    } else {
+        return "Please enter a VLAN Number !<br />";
+    }
+}
 ?>
