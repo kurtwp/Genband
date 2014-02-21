@@ -1,7 +1,10 @@
 <?php
 require_once 'header.html';
+require_once 'functions/GBFunctions.php';
 $addCommands = "";
+$arrayCount = 0;
 $cliEdit = "cli realm edit";
+$fail = "";
 $rsaName = "";
 $rsaVnet = "";
 $rsaMediaPool = "";
@@ -14,39 +17,63 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $rsaMediaPool = $_POST['rsaMediaPool'];
     $rsaMask = $_POST['rsaMask'];
     $rsaIP = $_POST['rsaIP'];
-    $cliEdit = $cliEdit . " " . $rsaName . " ";
-    print "<div id='right_box'>"."\n";
-    print "<textarea name='nowrap' rows='15' cols='80'>"."\n";
-    print "cli realm add " . $rsaName ."\n";
-    print $cliEdit . "rsa " . $rsaIP . "\n";
-    print $cliEdit . "mask " . $rsaMask . "\n";
-    print $cliEdit . "vnet " . $rsaVnet . "\n";
-    print $cliEdit . "medpool " . $rsaMediaPool . "\n";
-//    print $cliEdit . "imr alwayson \n";
-//    print $cliEdit . "emr alwayson" . "\n";
-//    print $cliEdit . "natmr alwaysoff" . "\n"; 
-    echo "</textarea>" ."\n";
-    echo "<h3 class='commh3'> Show Commands for Realms</h3>";
-    echo "<textarea rows='7' cols='80'>";
-    print "cli realm lkup " . $rsaName . " | more"."\n";
-    print "\n";
-	print "---------------- OR -------------"."\n";
-	print "\n";
-    print "cli realm brief" . "\n";
-    echo "</textarea>";
-	echo "</div> <!-- End of Right Box -->"."\n";
-	echo "</div> <!-- End of Wrapper -->"."\n";
-	echo "</body>"."\n";
-	echo "</html>"."\n";
-	exit;
+    
+// --- Add additional commands ---
+	if ($_POST['addCommands'] != "") {	
+		$addCommands = explode(",",$_POST['addCommands']);
+		$arrayCount = count($addCommands);
+	}
+// --- End of Additional Commands ---
+
+//---  PHP Validation Sections ---  	
+	$fail = validateIP($rsaIP);
+    $fail .= validateRSA($rsaName);
+    $fail .= validateMP($rsaMediaPool);
+    $fail .= validateVNet($rsaVnet);
+    $fail .= validateMask($rsaMask);
+
+//--- End Validation Section ---
+    
+    if ($fail == "") {
+        $cliEdit = $cliEdit . " " . $rsaName . " ";
+        print "<div id='right_box'>"."\n";
+        print "<textarea name='nowrap' rows='15' cols='80'>"."\n";
+        print "cli realm add " . $rsaName ."\n";
+        print $cliEdit . "rsa " . $rsaIP . "\n";
+        print $cliEdit . "mask " . $rsaMask . "\n";
+        print $cliEdit . "vnet " . $rsaVnet . "\n";
+        print $cliEdit . "medpool " . $rsaMediaPool . "\n";
+        print $cliEdit . "imr on \n";
+        print $cliEdit . "emr on" . "\n";
+        print $cliEdit . "rtptimeout default" . "\n";
+        print $cliEdit . "rtcptimeout default" . "\n";
+        for ($i=0; $i<$arrayCount; $i++) {
+            print $cliEdit . $addCommands[$i] . "\n";
+        }
+        echo "</textarea>" ."\n";
+        echo "<h3 class='commh3'> Show Commands for Realms</h3>";
+        echo "<textarea rows='7' cols='80'>";
+        print "cli realm lkup " . $rsaName . " | more"."\n";
+        print "\n";
+        print "---------------- OR -------------"."\n";
+        print "\n";
+        print "cli realm brief" . "\n";
+        echo "</textarea>";
+        echo "</div> <!-- End of Right Box -->"."\n";
+        echo "</div> <!-- End of Wrapper -->"."\n";
+        echo "</body>"."\n";
+        echo "</html>"."\n";
+        exit;
+    }
 }
 
 
 echo <<<_END
 <div id='right_box'>
+<h3>$fail</h3>
 <br />
 
-<form id="contactform" action="rsa.php" method="POST" onSubmit="return gbValidateRSA(this);">
+<form id="contactform" action="rsa.php" method="POST" >
 <h3>Genband Realm Configuration</h3>
 <div class="field">
 	<label for='rsaName'>Realm Name: </label>
@@ -58,7 +85,7 @@ echo <<<_END
 </div>
 <div class='field'>
 	<label for='rsaMediaPool'>Media Pool ID: </label>
-	<input type='text' class='input' size="20" maxlength='150' name='rsaMediaPool' value='$rsaMediaPool' />
+	<input type='text' class='input' size="20" maxlength='5' name='rsaMediaPool'/>
 </div>
 <div class='field'>
 	<label for='rsaIP'>Realm IP Address: </label>
@@ -72,7 +99,7 @@ echo <<<_END
 <br />
 <div class='field'>
 	<label for='addCommand'>Additional Commands: </label>
-	<input type='text' class='input' size="10" maxlength='10' name='addCommand' value='NOT AVAILABLE'/><br />
+	<input type='text' class='input' size="10" maxlength='150' name='addCommands' /><br />
 </div>
 <br />
 <input type='submit' class='button' value='Submit' />
