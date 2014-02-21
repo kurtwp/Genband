@@ -46,8 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		print $cliEdit . "natmr alwaysoff" . "\n";
 		print $cliEdit . "sipauth all" . "\n";
 		print $cliEdit . "realm-panasonic enable" . "\n";
-		print $cliEdit . "rtptimeout default" . "\n";
-        print $cliEdit . "rtcptimeout default" . "\n";
 		for ($i=0; $i<$arrayCount; $i++) {
             print $cliEdit . $addCommands[$i] . "\n";
         }
