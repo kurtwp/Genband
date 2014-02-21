@@ -32,8 +32,8 @@
 	}
 // --- Validate Subnet Mask ---
     function validateRSAMask(mask) {
-        var firstOctect = 0;
-        var octect = [0,128,192,224,240,248,252,254,255];
+        var firstOctet = 0;
+        var octet = [0,128,192,224,240,248,252,254,255];
         
         var tempArray = mask.split(".");
         var arrayCount = tempArray.length;
@@ -43,12 +43,12 @@
         if (arrayCount == 4) {
             for (i=0;i<4;i++) {
                 if (i == 0) {
-                    if (firstOctect == tempArray[0]) {
-                        return "First Mask Octect in Invalid! \n";
+                    if (firstOctet == tempArray[0]) {
+                        return "First Mask Octet is Invalid! \n";
                     }
                     for (k=1;k<4;k++) {
                         for (o=0;o<10;o++) {
-                            if (tempArray[k] == octect[o]) {
+                            if (tempArray[k] == octet[o]) {
                                 var value = 1;
                                 break;
                             } else {
