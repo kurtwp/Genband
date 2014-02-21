@@ -17,7 +17,7 @@ function validateIP($ip)
 // Validate Subnet MAsk
 function validateMask($mask) {
     $firstOctet = 0;
-    $octet = [0,128,192,224,240,248,252,254,255];
+    $octet = array(0,128,192,224,240,248,252,254,255);
     
     $tempOctet = explode(".",$mask);
     $arrayCount = count($tempOctet);
@@ -38,7 +38,6 @@ function validateMask($mask) {
                     break;
                 } else {
                     $value = 0;
-                    echo $value;
                 }
                 
             }
