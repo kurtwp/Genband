@@ -9,9 +9,9 @@ function validateIP($ip)
     {
         return "";
     } elseif ($ip == "") {
-	return "Please enter an IP address ! <br />";
+	return "Please enter an IP address! <br />";
     } else {
-	return $ip . " is not a valid IP address ! <br />";
+	return $ip . " is not a valid IP address! <br />";
     }
 }
 // Validate Subnet MAsk
@@ -22,7 +22,7 @@ function validateMask($mask) {
     $tempOctet = explode(".",$mask);
     $arrayCount = count($tempOctet);
     if ($arrayCount < 4 || $arrayCount > 4) {
-        return "Invalid Subnet Mask! <be />";
+        return "Invalid Subnet Mask! <br />";
     }
     if ($arrayCount == 4) {
         for ($i = 0; $i<$arrayCount; $i++) {
@@ -61,10 +61,10 @@ function validatePort($port) {
             {
                
             } else {
-                return "Port number must be all numbers !<br />";
+                return "Port number must be all numbers!<br />";
             }
         } else {
-            return "Please enter a Port Number !<br />";
+            return "Please enter a Port Number!<br />";
         }
     }
     return;
@@ -105,7 +105,7 @@ function compareRSACount($PCount,$RCount) {
         if ($RCount ==1 ) {
             return "";
         } else {
-            return "Missing Realm or Ports";
+            return "Missing Realm or Ports! <br />";
         }
     }
     return "";
@@ -116,7 +116,7 @@ function compareURICount($PCount,$UCount) {
         if ($UCount ==1 ) {
             return "";
         } else {
-            return "Missing URI or Ports";
+            return "Missing URI or Ports! <br />";
         }
     }
     return "";
@@ -157,4 +157,12 @@ function validateVLAN($vlan) {
         return "Please enter a VLAN Number !<br />";
     }
 }
+// Validate End Point Name
+    function validateEPName($name) {
+        if ($name == "") {
+            return "Please Enter in a End Point Name! <be />";
+        } else {
+            return "";
+        }
+    }
 ?>
