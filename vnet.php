@@ -39,6 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		}
 		print $cliEdit . "ifname " . $vnetIF . "\n";
 		print $cliEdit . "primary-gateway " . $vnetIP . "\n";
+		for ($i=0; $i<$arrayCount; $i++) {
+				print $cliEdit . $addCommands[$i] . "\n";
+		}
 		echo "</textarea>"."\n";
 		echo "<h3 class='commh3'> Show Commands for VNets</h3>";
         echo "<textarea rows='2' cols='80'>";
@@ -59,7 +62,7 @@ echo <<<_END
 <h3>$fail</h3>
 <br />
 
-<form id="contactform" action="vnet.php" method="POST">
+<form id="contactform" action="vnet.php" method="POST" onSubmit="return gbValidateVNet(this);">
 <h3>Genband VNET Configuration</h3>
 <div class="field">
 	<label for='vnetName'>VNET Name: </label>
@@ -79,7 +82,7 @@ echo <<<_END
 </div>
 <div class='field'>
 	<label for='addCommand'>Additional Commands: </label>
-	<input type='text' class='input' size="10" maxlength='10' name='addCommands' value='NOT AVAILABLE'/><br />
+	<input type='text' class='input' size="10" maxlength='150' name='addCommands' /><br />
 </div>
 <br />
 <input type='submit' class='button' value='Submit' />
