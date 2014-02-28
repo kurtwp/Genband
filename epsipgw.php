@@ -9,6 +9,7 @@ $arrayRCount = 0;
 $arrayUCount = 0;
 $cliEdit = "cli iedge edit";
 $endPoint = "";
+$epMedia = "yes";
 $epName = "";
 $epPort = "";
 $epRealm = "";
@@ -19,18 +20,19 @@ $tempPort = 0;
 $xCalls = "100";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
+	$epMedia = $_POST['epMedia'];
     $epName = $_POST['epName'];
 	$epPort = $_POST['epPort'];
     $epIP = $_POST['epIP'];
     
-// --- End Point Ports ---
+// --- Ports ---
 	if ($epPort != "") {	
 		$tempPort = explode(",",$epPort);
 		$arrayPCount = count($tempPort);
 	}
 // --- End of Point Ports ---
 
-// --- End Point RSA Name ---
+// --- RSA Name ---
 	if ($_POST['epRealm'] != "") {
 		$epRealm = explode(",",$_POST['epRealm']);
 		$arrayRCount = count($epRealm);
@@ -41,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		}
 	}
 // --- End of RSA Name ---
+
 // --- Add additional commands ---
 	if ($_POST['addCommands'] != "") {	
 		$tempCommands = explode(",",$_POST['addCommands']);
@@ -60,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	if ($fail == "") {
 		require_once 'header.html';
 		print "<div id='right_box'>";
-		print "<h3> Configuration for end point " . $epName . " with Media Anchored.</h3><br />"; 
+		print "<h3> Configuration for end point " . $epName . ".</h3><br />"; 
 		print "<textarea name='nowrap' rows='20' cols='80'>";
 		for ($k=0; $k<$arrayPCount; $k++) {
 			$endPoint = " " . $epName . " " . $tempPort[$k] . " ";
@@ -73,7 +76,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			print $cliEdit . $endPoint . "rtptimeout default" . "\n";
 			print $cliEdit . $endPoint . "rtcptimeout default" . "\n";
 			print $cliEdit . $endPoint . "xcalls " . $xCalls . "\n";
-			print $cliEdit . $endPoint . "mr enable" . "\n";
+			if ($epMedia == "yes") {
+				print $cliEdit . $endPoint . "mr enable" . "\n";
+			} else {
+				print $cliEdit . $endPoint . "nmr enable" . "\n";
+			}
 			for ($i=0; $i<$arrayCount; $i++) {
 				print $cliEdit . $endPoint . $tempCommands[$i] . "\n";
 			}
@@ -123,6 +130,11 @@ echo <<<_END
 <div class='field'>
 	<label for='epTransport'>Transport Protocol: </label>
 	<input type='text' class='input' size="20" maxlength='50' name='epTransport' value='udp'/><br />
+</div>
+<div class='field'>
+	<label for='epMedia'> Anchor Media: </label>
+	<input type="radio" name="epMedia" value="yes" checked/>Yes
+	<input type="radio" name="epMedia" value="no" />No
 </div>
 <div class='field'>
 	<label for='addCommands'>Additional Commands: </label>
