@@ -8,6 +8,7 @@ $arrayRCount = 0;
 $cliEdit = "cli iedge edit";
 $cliEditPhone = "cli iedge phones";
 $endPoint = "";
+$epMedia = "yes";
 $epName = "";
 $epPort = "";
 $epRealm = "";
@@ -18,6 +19,7 @@ $tempPort = 0;
 $xCalls = 1;
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
+	$epMedia = $_POST['epMedia'];
     $epName = $_POST['epName'];
     $epPort = $_POST['epPort'];
     $epRealm = $_POST['epRealm'];
@@ -72,6 +74,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 				print $cliEdit .  $endPoint . $addCommands[$k] . "\n";
 			}
 			print $cliEdit . $endPoint . "xcalls " . $xCalls . "\n";
+			if ($epMedia == "yes") {
+				print $cliEdit . $endPoint . "mr enable" . "\n";
+			} else {
+				print $cliEdit . $endPoint . "nmr enable" . "\n";
+			}
 		}
 		echo "</textarea>" ."\n";
 		echo "<h3 class='commh3'>Show End Point Commands</h3>";
@@ -117,7 +124,11 @@ echo <<<_END
 	<label for='xCalls'>Max Calls Allowed: </label>
 	<input type='text' class='input' size="20" maxlength='50' name='xCalls' value='1'/><br />
 </div>
-<br />
+<div class='field'>
+	<label for='epMedia'> Anchor Media: </label>
+	<input type="radio" name="epMedia" value="yes" checked/>Yes
+	<input type="radio" name="epMedia" value="no" />No
+</div>
 <div class='field'>
 	<label for='addCommand'>Additional Commands: </label>
 	<input type='text' class='input' size="10" maxlength='100' name='addCommands' /><br />

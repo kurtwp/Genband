@@ -29,8 +29,11 @@
 .commp {
 	font-size: 15px;
 }
-/* ---- Start of Vertical Menu Section ---- */
 
+.indent {
+	margin-left: 40px;
+}
+/* ---- Start of Vertical Menu Section ---- */
 .vert {
 	clear: both;
 	height: auto;

@@ -2,6 +2,7 @@
 require_once 'header.html';
 require_once 'functions/GBFunctions.php';
 $addCommands = "";
+$arrayCount = 0;
 $cliEdit = "cli vnet edit";
 $fail = "";
 $vnetName = "";
