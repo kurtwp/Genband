@@ -19,7 +19,7 @@ nxconfig.pl -e max-transport-mtu-size -v 5000
 nxconfig.pl -e forward-OPTIONS -v 1
 nxconfig.pl -e pass-out-of-dialog-info -v 1
 nxconfig.pl -e invalid-mline-count -v 1
-nxconfig.pl -e norequireport -v 1
+nxconfig.pl -e norequriport -v 1
     </textarea>
     <br />
     <br />
